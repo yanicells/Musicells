@@ -35,3 +35,12 @@ export const searchAlbums = async (query) => {
   return await response.json();
 };
 
+export const searchTracks = async (query) => {
+  if (!token) await getToken();
+  const response = await fetch(
+    `https://api.spotify.com/v1/search?q=${query}&type=track`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return await response.json();
+};
+
