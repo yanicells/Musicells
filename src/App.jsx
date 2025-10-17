@@ -4,6 +4,7 @@ import Favorites from './pages/Favorites';
 import { FavoriteProvider } from './contexts/FavoriteContext.jsx';
 import Navbar from './components/Navbar.jsx';
 import AlbumView from './pages/AlbumView.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/album/:id" element={<AlbumView />} />
       </Routes>
+      <Footer />
       </FavoriteProvider>
     </main>
   );  
