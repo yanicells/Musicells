@@ -27,7 +27,7 @@ function Navbar() {
   return (
     <div className="flex gap-5 justify-between items-center py-2.5 px-8 sm:px-10 sm:py-4 rounded-3xl backdrop-blur-[17.5px] bg-opacity-80 w-full max-w-full bg-[#ffffffff]">
       <div className="flex gap-2 justify-between items-center py-1.5 my-auto">
-        <a href="/" className="flex gap-2 justify-center items-center">
+        <a href="/" className="flex gap-2 justify-center items-center pt-2">
           <div className="flex justify-center items-center px-0.5">
             <img
               src="/logo.png"
