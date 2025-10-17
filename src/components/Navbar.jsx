@@ -20,6 +20,7 @@ function Navbar() {
   return (
     <div className="flex gap-5 justify-between items-center py-1.5 px-6 rounded-3xl backdrop-blur-[17.5px] bg-opacity-80 w-full max-w-full flex-wrap sm:flex-nowrap sm:py-4 sm:px-10 bg-[#ffffffff]">
       <div className="flex gap-2 justify-between items-center py-1.5 my-auto w-full sm:w-auto">
+        <a href="/" className="flex gap-2 justify-center items-center">
         <div className="flex justify-center items-center px-0.5">
           <img
             src="/logo.png"
@@ -30,6 +31,7 @@ function Navbar() {
         <div className="text-2xl font-bold text-gray-900 mb-2">
           musicells
         </div>
+        </a>
       </div>
       <nav className="flex sm:flex-row flex-col gap-5 justify-center items-center self-stretch my-auto text-base text-center text-neutral-900 font-light w-full sm:w-auto">
         {navItems.map((item, index) => (

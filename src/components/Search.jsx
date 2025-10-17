@@ -10,7 +10,7 @@ export default function Search(props) {
       className="flex items-center justify-center w-full max-w-2xl mx-auto mb-8"
       onSubmit={e => { e.preventDefault(); props.submitSearch(input); setInput(""); }}
     >
-      <div className="flex w-full bg-gray-100 border border-gray-300 rounded-lg overflow-hidden">
+      <div className="flex w-full bg-gray-100 border border-black rounded-lg overflow-hidden">
         <span className="flex items-center px-3 text-gray-400">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <circle cx={11} cy={11} r={8} />
@@ -26,7 +26,7 @@ export default function Search(props) {
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white px-5 py-2 text-base font-medium hover:bg-blue-700 transition-colors"
+          className="bg-gray-950 text-white px-5 py-2 text-base font-medium hover:bg-gray-700 transition-colors"
         >
           Search
         </button>

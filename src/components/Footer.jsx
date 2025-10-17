@@ -17,10 +17,10 @@ const Footer = () => {
 
         <div className="flex items-center gap-2">
           <img src="/logo.png" className="h-6 w-6" alt="Logo" />
-          <span className="font-semibold text-lg text-gray-900">musicells</span>
+          <span className="font-semibold text-lg text-black">musicells</span>
         </div>
 
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-900">
           © 2024 yanicells
         </p>
       </div>
