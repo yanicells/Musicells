@@ -27,8 +27,8 @@ function Navbar() {
             alt="Logo"
           />
         </div>
-        <div className="text-3xl font-bold text-gray-900 mb-2">
-          Musicells
+        <div className="text-2xl font-bold text-gray-900 mb-2">
+          musicells
         </div>
       </div>
       <nav className="flex sm:flex-row flex-col gap-5 justify-center items-center self-stretch my-auto text-base text-center text-neutral-900 font-light w-full sm:w-auto">
