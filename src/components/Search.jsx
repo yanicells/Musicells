@@ -26,7 +26,7 @@ export default function Search(props) {
         />
         <button
           type="submit"
-          className="bg-gray-950 text-white px-5 py-2 text-base font-medium hover:bg-gray-700 transition-colors"
+          className="bg-gray-950 text-white px-3 sm:px-5 py-2 text-sm sm:text-base font-medium hover:bg-gray-700 transition-colors"
         >
           Search
         </button>
