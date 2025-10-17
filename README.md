@@ -4,8 +4,8 @@ A web application that provides users with an intuitive interface to explore and
 
 ## Tech Stack
 
-- **Frontend**: TailwindCSS, React.js
-- **Backend**: Node.js
+- **Frontend**: React 19, TailwindCSS, Vite
+- **API**: Spotify Web API
 
 ## Setup Guide
 
@@ -39,9 +39,10 @@ VITE_CLIENT_SECRET=your_spotify_client_secret_here
 ### Run the Project
 
 ```bash
-# Start with nodemon
 npm run dev
 ```
+
+The app will be available at `http://localhost:5173`
 
 ## Usage
 
