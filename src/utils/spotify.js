@@ -26,6 +26,15 @@ export const searchArtists = async (query) => {
   return await response.json();
 };
 
+export const searchNewAlbums = async () => {
+  if (!token) await getToken();
+  const response = await fetch(
+    `https://api.spotify.com/v1/browse/new-releases`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return await response.json();
+};
+
 export const searchAlbums = async (query) => {
   if (!token) await getToken();
   const response = await fetch(
@@ -44,3 +53,11 @@ export const searchTracks = async (query) => {
   return await response.json();
 };
 
+export const getAlbumDetails = async (albumId) => {
+  if (!token) await getToken();
+  const response = await fetch(
+    `https://api.spotify.com/v1/albums/${albumId}`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return await response.json();
+};

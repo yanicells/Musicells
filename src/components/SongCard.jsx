@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useFavorites } from '../contexts/FavoriteContext.jsx';
+import { getAlbumDetails } from "../utils/spotify.js";
 
 const SongCard = ({ album, liked }) => {
   const { addLikedAlbum, removeLikedAlbum, favorites} = useFavorites();
@@ -15,6 +16,11 @@ const SongCard = ({ album, liked }) => {
     setIsLiked(!isLiked);
     event.preventDefault();
   };
+
+  const handleTitleClick = async () => {
+    const details =  await getAlbumDetails(album.id);
+    console.log('Album Details:', details);
+  }
 
   useEffect(() => {
     if(favorites.find(a => a.id === album.id)) {
@@ -32,7 +38,7 @@ const SongCard = ({ album, liked }) => {
         className="w-full h-64 object-cover"
       />
       <div className="p-6 flex-1 flex flex-col justify-between">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 onClick={handleTitleClick} className="text-2xl font-bold text-gray-800 mb-2">
           {album.name}
         </h2>
         <div className="flex justify-between items-center">

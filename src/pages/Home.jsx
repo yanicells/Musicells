@@ -1,5 +1,5 @@
-import { useState} from 'react';
-import { searchAlbums } from '../utils/spotify';
+import { useState, useEffect} from 'react';
+import { searchAlbums, searchNewAlbums } from '../utils/spotify';
 import SongCard from '../components/SongCard';
 import Search from '../components/Search';
 
@@ -10,6 +10,14 @@ function Home() {
     const result = await searchAlbums(query);
     setData(result.albums.items)
   }
+
+  useEffect(() => {
+    const fetchNewAlbums = async () => {
+        const result = await searchNewAlbums();
+        setData(result.albums.items);
+    }
+    fetchNewAlbums();
+  }, [])
 
   return (
     <div className="p-8">
