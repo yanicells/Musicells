@@ -2,7 +2,10 @@ import { Link } from "react-router";
 
 function NavItem({ text, path }) {
   return (
-    <Link to={path} className="justify-center py-2 cursor-pointer">
+    <Link 
+      to={path} 
+      className="justify-center py-2 px-4 cursor-pointer hover:bg-gray-100 rounded-lg transition-colors duration-200 font-medium"
+    >
       {text}
     </Link>
   );
@@ -24,7 +27,7 @@ function Navbar() {
             alt="Logo"
           />
         </div>
-        <div className="my-auto uppercase font-extrabold text-lg text-zinc-950">
+        <div className="my-auto font-semibold text-2xl text-zinc-950" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
           Musicells
         </div>
       </div>
