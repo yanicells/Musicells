@@ -1,7 +1,6 @@
 import React from "react";
 
 const Song = ({ track }) => {
-  // Convert milliseconds to minutes:seconds format
   const formatDuration = (ms) => {
     if (!ms) return '0:00';
     const minutes = Math.floor(ms / 60000);
@@ -11,12 +10,10 @@ const Song = ({ track }) => {
 
   return (
     <div className="flex items-center p-4 hover:bg-gray-50 border-b border-gray-200 transition-colors">
-      {/* Track Number */}
       <div className="w-8 text-gray-500 text-sm">
         {track.track_number || '-'}
       </div>
 
-      {/* Track Info */}
       <div className="flex-1">
         <div className="font-semibold text-gray-800">
           {track.name || 'Unknown Track'}
@@ -29,7 +26,6 @@ const Song = ({ track }) => {
         </div>
       </div>
 
-      {/* Duration */}
       <div className="text-sm text-gray-500">
         {formatDuration(track.duration_ms)}
       </div>

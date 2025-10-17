@@ -5,16 +5,13 @@ const Album = ({ album }) => {
 
     return(
         <div className="max-w-4xl mx-auto">
-            {/* Album Header */}
             <div className="flex flex-col md:flex-row gap-6 mb-8">
-                {/* Album Cover */}
                 <img 
                     src={album.images?.[0]?.url || 'https://via.placeholder.com/300x300?text=No+Image'} 
                     alt={album.name || 'Album cover'}
                     className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
                 />
                 
-                {/* Album Info */}
                 <div className="flex flex-col justify-center">
                     <h1 className="text-4xl font-bold mb-2">{album.name || 'Unknown Album'}</h1>
                     <p className="text-xl text-gray-600 mb-2">
@@ -32,7 +29,6 @@ const Album = ({ album }) => {
                 </div>
             </div>
 
-            {/* Track List */}
             <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-bold mb-4">Tracks</h2>
                 {album.tracks?.items && album.tracks.items.length > 0 ? (
