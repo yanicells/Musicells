@@ -21,8 +21,8 @@ export default function Search(props) {
           onChange={updateInput}
           value={input}
           type="text"
-          placeholder="Search albums..."
-          className="flex-1 bg-transparent outline-none px-2 py-2 text-base"
+          placeholder="Search albums or artists..."
+          className="flex-1 bg-transparent outline-none px-2 py-2 text-sm sm:text-base"
         />
         <button
           type="submit"
