@@ -1,54 +1,46 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useFavorites } from '../contexts/FavoriteContext.jsx';
-import { getAlbumDetails } from "../utils/spotify.js";
+import { Link } from "react-router-dom";
 
-const SongCard = ({ album, liked }) => {
+const SongCard = ({ album }) => {
   const { addLikedAlbum, removeLikedAlbum, favorites} = useFavorites();
-  const [isLiked, setIsLiked] = useState(liked);
+  const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = (event) => {
+    event.preventDefault();
     if (isLiked) {
       removeLikedAlbum(album);
     } else {
       addLikedAlbum(album);
     }
     setIsLiked(!isLiked);
-    event.preventDefault();
   };
 
-  const handleTitleClick = async () => {
-    const details =  await getAlbumDetails(album.id);
-    console.log('Album Details:', details);
-  }
-
   useEffect(() => {
-    if(favorites.find(a => a.id === album.id)) {
-      setIsLiked(true);
-    } else {
-      setIsLiked(false);
-    }
+    const alreadyLiked = favorites.some(a => a.id === album.id);
+    setIsLiked(alreadyLiked);
   }, [favorites, album.id]);
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
       <img
-        src={album.images[0].url}
+        src={album.images?.[0]?.url || 'https://via.placeholder.com/300x300?text=No+Image'}
         alt={album.name}
         className="w-full h-64 object-cover"
       />
       <div className="p-6 flex-1 flex flex-col justify-between">
-        <h2 onClick={handleTitleClick} className="text-2xl font-bold text-gray-800 mb-2">
+        <Link to={`/album/${album.id}`} className="text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
           {album.name}
-        </h2>
+        </Link>
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <span className="text-gray-800 font-semibold">{album.artists[0].name}</span>
+            <span className="text-gray-800 font-semibold">{album.artists?.[0]?.name || 'Unknown Artist'}</span>
           </div>
           <span className="text-gray-600">{album.release_date}</span>
-          <a href="#" className="float-right mr-3" onClick={handleLike}>
-            <img className={isLiked ? "" : "filter grayscale"} src="https://img.icons8.com/flat_round/24/000000/hearts.png" />
-          </a>
+          <button onClick={handleLike} className="float-right mr-3">
+            <img className={isLiked ? "" : "filter grayscale"} src="https://img.icons8.com/flat_round/24/000000/hearts.png" alt="like" />
+          </button>
         </div>
       </div>
     </div>
