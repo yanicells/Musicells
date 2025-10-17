@@ -1,19 +1,28 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useFavorites } from '../contexts/FavoriteContext.jsx';
 
-const SongCard = ({ album, addLikedAlbum, removeLikedAlbum }) => {
-  const [liked, setLiked] = useState(false);
+const SongCard = ({ album, liked }) => {
+  const { addLikedAlbum, removeLikedAlbum, favorites} = useFavorites();
+  const [isLiked, setIsLiked] = useState(liked);
 
-  const handleFavorite = (event) => {
-    if (!liked) {
-      addLikedAlbum(album);
-      setLiked(true);
-    } else {
+  const handleLike = (event) => {
+    if (isLiked) {
       removeLikedAlbum(album);
-      setLiked(false);
+    } else {
+      addLikedAlbum(album);
     }
+    setIsLiked(!isLiked);
     event.preventDefault();
-  }
+  };
+
+  useEffect(() => {
+    if(favorites.find(a => a.id === album.id)) {
+      setIsLiked(true);
+    } else {
+      setIsLiked(false);
+    }
+  }, [favorites, album.id]);
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
@@ -31,8 +40,8 @@ const SongCard = ({ album, addLikedAlbum, removeLikedAlbum }) => {
             <span className="text-gray-800 font-semibold">{album.artists[0].name}</span>
           </div>
           <span className="text-gray-600">{album.release_date}</span>
-          <a href="#" className="float-right mr-3" onClick={handleFavorite}>
-            <img className={liked ? "" : "filter grayscale"} src="https://img.icons8.com/flat_round/24/000000/hearts.png" />
+          <a href="#" className="float-right mr-3" onClick={handleLike}>
+            <img className={isLiked ? "" : "filter grayscale"} src="https://img.icons8.com/flat_round/24/000000/hearts.png" />
           </a>
         </div>
       </div>

@@ -1,23 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { searchAlbums } from '../utils/spotify';
 import SongCard from '../components/SongCard';
 import Search from '../components/Search';
 
 function Home() {
   const [data, setData] = useState(null);
-  const [likedAlbums, setLikedAlbums] = useState([]);
-
-  useEffect(() => {
-    console.log('Liked albums updated:', likedAlbums);
-  }, [likedAlbums]);
-
-  const addLikedAlbum = (album) => {
-    setLikedAlbums([...likedAlbums, album.name]);
-  }
-
-  const removeLikedAlbum = (album) => {
-    setLikedAlbums(likedAlbums.filter(a => a.id !== album.id));
-  }
 
   const submitSearch = async (query) => {
     const result = await searchAlbums(query);
@@ -30,7 +17,7 @@ function Home() {
       {data && 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {data.map((album, index) => {
-          return <SongCard key={index} album={album} addLikedAlbum={addLikedAlbum} removeLikedAlbum={removeLikedAlbum} />;
+          return <SongCard key={index} album={album} />;
         })}
       </div>}
     </div>
