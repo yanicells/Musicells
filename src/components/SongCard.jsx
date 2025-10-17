@@ -23,7 +23,7 @@ const SongCard = ({ album }) => {
   }, [favorites, album.id]);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition hover:shadow-md">
       <img
         src={album.images?.[0]?.url || 'https://via.placeholder.com/300x300?text=No+Image'}
         alt={album.name}

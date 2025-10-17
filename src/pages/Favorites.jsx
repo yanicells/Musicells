@@ -10,7 +10,7 @@ function Favorites() {
       {favorites.length === 0 ? (
         <p>Your favorite albums will appear here.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-8">
           {favorites.map((album, index) => {
             return <SongCard key={index} album={album} />;
           })}
