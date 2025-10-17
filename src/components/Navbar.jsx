@@ -27,7 +27,7 @@ function Navbar() {
             alt="Logo"
           />
         </div>
-        <div className="my-auto font-semibold text-2xl text-zinc-950" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
+        <div className="text-3xl font-bold text-gray-900 mb-2">
           Musicells
         </div>
       </div>
